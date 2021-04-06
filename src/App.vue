@@ -1,11 +1,18 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+<Counter/>
+  <div>
+    count:{{$store.state.count}}
   </div>
-  <router-view/>
 </template>
-
+<script>
+import Counter from "./components/Counter";
+export default {
+  name:'app',
+  components:{
+    Counter
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
