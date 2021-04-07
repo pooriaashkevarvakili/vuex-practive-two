@@ -44,6 +44,13 @@ return state.todos.find((todo)=>todo.id === id)
       state.count = state.count + payload.value;
     },
   },
-  actions: {},
+  actions: {
+    increment(context,payload) {
+      setTimeout(()=>{
+        context.commit('increment',payload)
+
+      },3000)
+    }
+  },
   modules: {},
 });
