@@ -50,6 +50,11 @@ return state.todos.find((todo)=>todo.id === id)
         context.commit('increment',payload)
 
       },3000)
+    },
+    actionA(context){
+      return new Promise((resolve,reject)=>{
+
+      })
     }
   },
   modules: {},
