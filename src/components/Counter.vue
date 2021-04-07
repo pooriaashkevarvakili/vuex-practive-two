@@ -1,7 +1,10 @@
 <template>
 <div>
-  counter:{{$store.state.count}}
+  counter:{{count}}
 </div>
+  <div>
+    <button @click="onIncrement()">onIncrement</button>
+  </div>
 </template>
 
 <script>
@@ -10,6 +13,20 @@ export default {
   data(){
     return{
       counter:0
+    }
+
+  },
+  computed:{
+    count(){
+      return this.$store.state.count
+    }
+  },
+  methods:{
+    onIncrement(){
+      this.$store.commit({
+        type:'increment',
+        value:4
+      })
     }
   }
 }

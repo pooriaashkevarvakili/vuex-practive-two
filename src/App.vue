@@ -1,15 +1,44 @@
 <template>
+  <div>
 <Counter/>
   <div>
-    count:{{$store.state.count}}
+    <h3>App Vue Counter</h3>
+    count:{{count}}
   </div>
+    <div>
+      <button @click.prevent="onIncrement()">increment</button>
+    </div>
+    <div>
+    <TodoList/>
+  </div>
+    <div>
+      todo list compeleted:{{getDoneListCount}}
+    </div>
+  </div>
+
 </template>
 <script>
 import Counter from "./components/Counter";
+import TodoList from "./components/TodoList";
 export default {
   name:'app',
+  computed:{
+    count(){
+      return this.$store.state.count
+    },
+    getDoneListCount(){
+      return this.$store.getters.todoList
+    }
+  },
   components:{
-    Counter
+    Counter,
+    TodoList
+  },
+  methods:{
+    onIncrement(){
+      this.$store.commit('increment',4)
+    },
+
   }
 }
 </script>
